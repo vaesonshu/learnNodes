@@ -1,4 +1,4 @@
 import { createApp } from 'vue'
-import App from './components/第2章-框架设计的核心要素/index.vue'
+import App from './components/第4章 响应系统的作用与实现/index.vue'
 
 createApp(App).mount('#app')
