@@ -4,27 +4,8 @@
 ---
 # 基础
 ## 创建一个应用
-## 
-
-> 错误处理
-
-
-`
-app.config.errorHandler = (err) => {
-  /* 处理错误 */
-}
-`
-
-> 多个应用实例
-
-
-```
-const app1 = createApp({
-  /* ... */
-})
-app1.mount('#container-1')
-const app2 = createApp({
-  /* ... */
-})
-app2.mount('#container-2')
-```
+## 模板语法
+## 响应式基础
+## 计算属性
+## 类与样式绑定
+## 条件渲染
