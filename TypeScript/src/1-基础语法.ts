@@ -3,7 +3,7 @@
  */
 // 数字
 let number1 = 1
-let number2 = 2
+let number2 = 4
 function add (n1: number, n2: number) {
   return n1 +n2
 }

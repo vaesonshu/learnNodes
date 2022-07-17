@@ -1,0 +1,19 @@
+{
+  "name": "learn-typescript",
+  "version": "1.0.0",
+  "description": "tsc --init 生成tsconfig.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch src/ -e ts --exec ts-node ./src/index.ts",
+    "startparcel": "parcel ./index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
