@@ -2,51 +2,46 @@ import { defineConfig } from 'vitepress'
 import renderPermaLink from './render-perma-link'
 import MarkDownItCustomAnchor from './markdown-it-custom-anchor'
 export default defineConfig({
-  title: '测试',
+  title: '前端学习笔记',
   description: '在学习前端过程中总结的笔记、自己对知识的沉淀和思考',
   lang: 'zh-CN',
   themeConfig: {
     // logo: '/logo.svg',
     nav: [
-      { text: '指引', link: '/guide/', activeMatch: '/guide/' },
-      { text: '配置', link: '/config/', activeMatch: '/config/' },
-      { text: '插件', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'JavaScript', link: '/guide/', activeMatch: '/guide/' },
+      { text: 'TypeScript', link: '/config/', activeMatch: '/config/' },
+      { text: 'Vue', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'React', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'Node', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'Vite', link: '/plugins/', activeMatch: '/plugins/' },
       {
-        text: '相关链接',
+        text: '实战项目',
         items: [
           { text: 'Team', link: '/team' },
           {
-            text: 'Twitter',
+            text: '前端技术社区',
+            link: '#'
+          },
+          {
+            text: '进击的松鼠-Blog',
             link: 'https://twitter.com/vite_js'
-          },
-          {
-            text: 'Discord Chat',
-            link: 'https://chat.vitejs.dev'
-          },
-          {
-            text: 'Awesome Vite',
-            link: 'https://github.com/vitejs/awesome-vite'
-          },
-          {
-            text: 'Dev.to 社区',
-            link: 'https://dev.to/t/vite'
-          },
-          {
-            text: 'Rollup 插件兼容',
-            link: 'https://vite-rollup-plugins.patak.dev/'
-          },
-          {
-            text: '更新日志',
-            link: 'https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md'
           }
         ]
       },
       {
-        text: 'Version',
+        text: 'Node',
         items: [
           {
-            text: 'Vite v2 文档',
-            link: 'https://v2.vitejs.dev'
+            text: 'express',
+            link: '#'
+          },
+          {
+            text: 'koa2',
+            link: '#'
+          },
+          {
+            text: 'egg',
+            link: '#'
           }
         ]
       }
