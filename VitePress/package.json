@@ -4,11 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.4"
+    "chalk": "^4.1.0",
+		"gray-matter": "^4.0.3",
+		"lodash": "^4.17.21",
+		"vite": "^2.9.12",
+    "vitepress": "^1.0.0-alpha.4",
+    "yorkie": "^2.0.0"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   }
 }
