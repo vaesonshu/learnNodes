@@ -14,6 +14,7 @@ export default defineConfig({
       { text: 'React', link: '/plugins/', activeMatch: '/plugins/' },
       { text: 'Node', link: '/plugins/', activeMatch: '/plugins/' },
       { text: 'Vite', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: '算法', link: '/algorithm/', activeMatch: '/algorithm/' },
       {
         text: '实战项目',
         items: [
@@ -167,6 +168,21 @@ export default defineConfig({
             {
               text: 'Worker 选项',
               link: '/config/worker-options'
+            }
+          ]
+        }
+      ],
+      '/algorithm/': [
+        {
+          text: '数据结构与算法',
+          items: [
+            {
+              text: '开始',
+              link: '/algorithm/'
+            },
+            {
+              text: '栈',
+              link: '/algorithm/stack'
             }
           ]
         }
