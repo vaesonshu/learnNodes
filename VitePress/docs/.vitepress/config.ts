@@ -2,18 +2,18 @@ import { defineConfig } from 'vitepress'
 import renderPermaLink from './render-perma-link'
 import MarkDownItCustomAnchor from './markdown-it-custom-anchor'
 export default defineConfig({
-  title: '前端学习笔记',
+  title: '前端驿栈（学习笔记）',
   description: '在学习前端过程中总结的笔记、自己对知识的沉淀和思考',
   lang: 'zh-CN',
   themeConfig: {
     // logo: '/logo.svg',
     nav: [
-      { text: 'JavaScript', link: '/guide/', activeMatch: '/guide/' },
+      { text: 'JavaScript', link: '/javascript/', activeMatch: '/javascript/' },
       { text: 'TypeScript', link: '/config/', activeMatch: '/config/' },
-      { text: 'Vue', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'Vue', link: '/vue/', activeMatch: '/vue/' },
       { text: 'React', link: '/plugins/', activeMatch: '/plugins/' },
       { text: 'Node', link: '/plugins/', activeMatch: '/plugins/' },
-      { text: 'Vite', link: '/plugins/', activeMatch: '/plugins/' },
+      { text: 'Vite', link: '/guide/', activeMatch: '/guide/' },
       { text: '算法', link: '/algorithm/', activeMatch: '/algorithm/' },
       {
         text: '实战项目',
@@ -42,6 +42,23 @@ export default defineConfig({
           },
           {
             text: 'egg',
+            link: '#'
+          }
+        ]
+      },
+      {
+        text: '计算机基础',
+        items: [
+          {
+            text: 'HTTP',
+            link: '#'
+          },
+          {
+            text: '计算机网络',
+            link: '#'
+          },
+          {
+            text: '计算机组成原理',
             link: '#'
           }
         ]
@@ -170,6 +187,44 @@ export default defineConfig({
               link: '/config/worker-options'
             }
           ]
+        }
+      ],
+      '/javascript/': [
+        {
+          text: 'javascript',
+          items: [
+            {
+              text: '开始',
+              link: '/javascript/'
+            },
+            {
+              text: 'ES6',
+              link: '/javascript/es6'
+            }
+          ]
+        },
+        {
+          text: '解析vue3源码',
+          items: []
+        }
+      ],
+      '/vue/': [
+        {
+          text: '手写vue3源码',
+          items: [
+            {
+              text: '开始',
+              link: '/vue/'
+            },
+            {
+              text: '实现构建流程',
+              link: '/vue/build'
+            }
+          ]
+        },
+        {
+          text: '解析vue3源码',
+          items: []
         }
       ],
       '/algorithm/': [
