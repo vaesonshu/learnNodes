@@ -15,6 +15,7 @@ export default defineConfig({
       { text: 'Node', link: '/plugins/', activeMatch: '/plugins/' },
       { text: 'Vite', link: '/plugins/', activeMatch: '/plugins/' },
       { text: '算法', link: '/algorithm/', activeMatch: '/algorithm/' },
+      { text: 'npm', link: '/npm/', activeMatch: '/npm/' },
       {
         text: '实战项目',
         items: [
@@ -183,6 +184,17 @@ export default defineConfig({
             {
               text: '栈',
               link: '/algorithm/stack'
+            }
+          ]
+        }
+      ],
+      '/npm/': [
+        {
+          text: 'npm包',
+          items: [
+            {
+              text: '开始',
+              link: '/npm/'
             }
           ]
         }
