@@ -9,7 +9,7 @@ export default defineConfig({
     // logo: '/logo.svg',
     nav: [
       { text: 'JavaScript', link: '/javascript/', activeMatch: '/javascript/' },
-      { text: 'TypeScript', link: '/config/', activeMatch: '/config/' },
+      { text: 'TypeScript', link: '/typescript/', activeMatch: '/typescript/' },
       { text: 'Vue', link: '/vue/', activeMatch: '/vue/' },
       { text: 'React', link: '/plugins/', activeMatch: '/plugins/' },
       { text: 'Node', link: '/plugins/', activeMatch: '/plugins/' },
@@ -192,7 +192,7 @@ export default defineConfig({
       ],
       '/javascript/': [
         {
-          text: 'javascript',
+          text: 'ES6',
           items: [
             {
               text: '开始',
@@ -203,10 +203,21 @@ export default defineConfig({
               link: '/javascript/es6'
             }
           ]
-        },
+        }
+      ],
+      '/typescript/': [
         {
-          text: '解析vue3源码',
-          items: []
+          text: '前置知识',
+          items: [
+            {
+              text: '开始',
+              link: '/typescript/'
+            },
+            {
+              text: 'TypeScript 类',
+              link: '/typescript/class'
+            }
+          ]
         }
       ],
       '/vue/': [
