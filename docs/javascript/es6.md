@@ -2,6 +2,72 @@
 - 谢成老师 [ECMAScript2015~2020语法全解析](http://es.xiecheng.live/)
 - 阮一峰老师 [ES6 标准入门](https://es6.ruanyifeng.com/)
 
+## let、const
+:::tip 注意
+delete只能删除对象的属性，不能删除变量
+:::
+```js
+// var
+var a = 5
+console.log(a) // 5
+delete a // 报错
+console.log(window.a) // undefined
+
+b = 6
+console.log(b) // 6 报错
+console.log(window.b) // 6
+```
+- let
+```js
+// 1. let不属于顶层对象window
+let a = 5
+console.log(a) // 5
+console.log(window.a) // undefined
+
+// 2. let不允许重复声明变量
+let a = 5
+let a = 6
+console.log(a) // 报错
+
+// 3. let不存在变量提升
+console.log(a) // Uncaught ReferenceError: a is not defined
+let a = 5
+
+// 4. 暂时性死区 防止在变量声明之前去使用变量 使代码更安全
+var a = 5
+if (true) {
+  a = 6
+  let a
+}
+
+// 5. 块级作用域
+for (let i = 0; i < 3; i++) {
+  console.log('循环内:' + i)
+}
+console.log('循环外:' + i) // Uncaught ReferenceError: i is not defined
+```
+- const
+```js
+// 1. const声明的变量不可修改
+const a = 5
+a = 6 // Uncaught TypeError: Assignment to constant variable.
+
+// 2. const定义引用类型 可以赋值
+const obj = {
+	name: 'xiaoming',
+	skill: {
+		name: 'code'
+	}
+}
+obj.school = 'school'
+obj.skill.name = 'js'
+console.log(obj) // {name: 'xiaoming', skill: {…}, school: 'school'}
+
+// 3. const定义的数组可以添加值
+const arr = [1, 2, 3]
+arr.push(4)
+console.log(arr) // (4) [1, 2, 3, 4]
+```
 
 
 
