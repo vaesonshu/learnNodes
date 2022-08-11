@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 下面的代码是闭包吗？ 并不是 但是通过这种方式定义的闭包并不能直接进行观察 也无法明白在这个代码片段中闭包是如何工作的
+      // 函数 bar() 可以访问外部作用域中的变量 a
+      function foo() {
+        var a = 1
+        function bar() {
+          console.log(a) // 1
+        }
+        bar()
+      }
+      foo()
+
+      // 下面的一段代码 清晰地展示了闭包
+      function foo2() {
+        var a = 2
+        function bar2() {
+          console.log(a)
+        }
+        return bar2
+      }
+      var baz = foo2()
+      baz() // 2 这就是闭包的效果
+
+      // 无论使用何种方式对函数类型的值进行传递， 当函数在别处被调用时都可以观察到闭包
+      function foo3() {
+        var a = 3
+        function baz() {
+          console.log(a) // 2
+        }
+        bar3(baz)
+      }
+      function bar3(fn) {
+        fn() // 这就是闭包！
+      }
+      foo3()
+
+      // 传递函数当然也可以是间接的
+      var fn4
+      function foo4() {
+        var a = 4
+        function baz() {
+          console.log(a)
+        }
+        fn4 = baz // 将 baz 分配给全局变量
+      }
+      function bar4() {
+        fn4() // 这就是闭包！
+      }
+      foo4()
+      bar4() // 4
+    </script>
+  </body>
+</html>

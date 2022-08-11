@@ -8,10 +8,17 @@ const format = args.f || 'global'
 
 const pkg = require(resolve(__dirname, `../packages/${target}/package.json`))
 
-const outputFormat = format.startsWith('global') ? 'iife' : format === 'cjs' ? 'cjs' : "esm"
+const outputFormat = format.startsWith('global')
+  ? 'iife'
+  : format === 'cjs'
+  ? 'cjs'
+  : 'esm'
 
 // 输出文件
-const outfile = resolve(__dirname, `../packages/${target}/dist/${target}.${format}.js`)
+const outfile = resolve(
+  __dirname,
+  `../packages/${target}/dist/${target}.${format}.js`
+)
 
 // 天生支持ts
 build({
@@ -22,11 +29,12 @@ build({
   format: outputFormat, // 输出的格式
   globalName: pkg.buildOptions.name, // 打包的全局的名字
   platform: format === 'cjs' ? 'node' : 'browser', // 平台
-  watch: { // 监控文件的变化
+  watch: {
+    // 监控文件的变化
     onRebuild(error) {
       if (!error) console.log('rebuilt~~~')
-    }
-  }
+    },
+  },
 }).then(() => {
   console.log('watching~~~')
 })

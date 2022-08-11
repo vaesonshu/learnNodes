@@ -9,7 +9,7 @@
   4. 生成tsconfig.json
     `tsc --init`
   5. 修改tsconfig.json文件
-    `"outDir": "./dist"  // ts编译后生成的js文件保存的目录;`
+    `"outDir": "./dist"  // ts编译后生成的js文件保存的目录`
     `"rootDir": "./src"  // 是自己编写的ts源文件所在的目录`
   6. 安装Parcel打包工具 支持浏览器运行TS文件
     `npm install parcel-bundler --save-dev`
