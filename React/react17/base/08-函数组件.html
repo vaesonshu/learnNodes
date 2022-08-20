@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.在React中如何定义组件?
+- 在React中创建组件有两种方式
+    + 第一种: 通过ES6之前的构造函数来定义(无状态组件)
+    + 第二种: 通过ES6开始的class来定义(有状态组件)
+-->
+<!--
+2.如何通过ES5的构造函数来定义组件
+- 在构造函数中返回组件的结构即可
+function Home() {
+    return (
+      <div>
+          <div>{message}</div>
+          <button onClick={btnClick}>按钮</button>
+      </div>
+    );
+}
+https://zh-hans.reactjs.org/docs/components-and-props.html
+-->
+<div id="app"></div>
+<script type="text/babel">
+    let message = '知播渔';
+    function Home() {
+        return (
+            <div>
+                <div>{message}</div>
+                <button onClick={myFn}>按钮</button>
+            </div>
+        )
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+
+    function myFn() {
+        message = 'www.it666.com';
+        ReactDOM.render(<Home/>, document.getElementById('app'));
+    }
+</script>
+</body>
+</html>

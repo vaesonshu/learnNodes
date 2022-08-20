@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="./react17/react.development.v17.js"></script>
+    <script src="./react17/react-dom.development.v17.js"></script>
+  </head>
+  <body>
+    <!--
+1.render方法注意点
+- 多次渲染, 后渲染会覆盖先渲染
+- render方法一次只能渲染一个元素/组件
+
+2.createElement方法注意点
+- 可以添加3个以上参数, 后续参数都会作为当前创建元素内容处理
+
+3.如何给元素添加监听?
+- 给元素添加监听的本质就是给元素添加属性
+  所以可以在createElement()的第二个参数中添加
+- <button onclick="btnClick">按钮</button>
+- React.createElement('button', {onClick: btnClick}, '按钮');
+
+注意事项:
+如果想给元素绑定事件, 那么事件名称必须是驼峰命名
+-->
+    <div id="app"></div>
+    <script>
+      // 1.创建虚拟DOM
+      let message = '知播渔'
+      // <div>知播渔</div>
+      let oDiv = React.createElement('div', null, message)
+      // <button onclick='myfn'>按钮</button>
+      let oBtn = React.createElement('button', null, '按钮')
+      // 注意点: 默认createElement方法只能接收3个参数, 但是我们也可以传递3个以上的参数
+      //        如果我们传递了3个以上参数, 那么从第3个开始都会当做是内容来处理
+      /*
+    React.createElement(
+      type,
+      [props],
+      [...children]
+    )
+    * */
+      // 注意点: 如果想通过React绑定事件, 那么事件名称必须是驼峰命名
+      let oRoot = React.createElement('div', { onClick: myFn }, oDiv, oBtn)
+
+      // 2.将虚拟DOM转换成真实DOM
+      ReactDOM.render(oRoot, document.getElementById('app'), () => {
+        console.log('已经将虚拟DOM转换成了真实DOM, 已经渲染到界面上了')
+      })
+      function myFn() {
+        message = 'www.it666.com'
+        // 注意点: 默认情况下载React中, 修改完数据之后, 是不会自动更新界面的
+        let oDiv = React.createElement('div', null, message)
+        let oBtn = React.createElement('button', null, '按钮')
+        let oRoot = React.createElement('div', { onClick: myFn }, oDiv, oBtn)
+        ReactDOM.render(oRoot, document.getElementById('app'), () => {
+          console.log('已经将虚拟DOM转换成了真实DOM, 已经渲染到界面上了')
+        })
+      }
+      // 注意点: render方法最多只能接收3个参数, 所以不能同时渲染多个元素
+      // ReactDOM.render(oDiv, oBtn, document.getElementById('app'), ()=>{
+      //     console.log('已经将虚拟DOM转换成了真实DOM, 已经渲染到界面上了');
+      // });
+      // 注意点: 如果多次调用render方法, 那么后渲染的会覆盖先渲染的
+      // ReactDOM.render(oBtn, document.getElementById('app'), ()=>{
+      //     console.log('已经将虚拟DOM转换成了真实DOM, 已经渲染到界面上了');
+      // });
+    </script>
+  </body>
+</html>

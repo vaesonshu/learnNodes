@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.JSX书写规范
+- JSX的顶层只能有一个根元素
+- JSX中的标签可以是单标签也可以是双标签, 但如果是单标签必须闭合(/>)
+- 如果JSX中包含多个元素, 建议使用()包裹
+-->
+<div id="app"></div>
+<script type="text/babel">
+    class About extends React.Component{
+        render(){
+            return (
+                <div>about</div>
+            )
+        }
+    }
+    class Home extends React.Component{
+        constructor(){
+            super();
+        }
+        render(){
+            // 1.在编写JSX代码的时候, 建议使用()将JSX代码包裹起来
+            // 2.在JSX中只能有一个根元素
+            // 3.在JSX中可以编写单标签, 也可以编写双标签
+            //   但是如果编写的是单便签, 那么就必须加上闭合符号
+            // 4.在使用组件的时候, 可以使用单便签, 也可以使用双标签
+            //   但是如果是使用的单标签, 那么就必须加上闭合符号
+            // 5.在使用组件的时候, 如果组件中没有内容, 那么建议使用单标签
+            return (
+                <div>
+                    <div>456</div>
+                    <div>456</div>
+                    <img/>
+                    {/*
+                    <About></About>
+                    */}
+                    <About/>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

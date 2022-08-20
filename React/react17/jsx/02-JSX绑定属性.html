@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.JSX绑定内容
+- 在JSX中只要看到{}就会当做JS解析(执行里面的JS代码)
+  所以无论是绑定属性,还是绑定类名,还是绑定样式, 只需要将字符串改为{}
+  然后再通过JS动态获取, 动态绑定即可
+
+- 绑定普通属性
+    + <p title="我是标题">我是段落</p>
+    + <p title={message}>我是段落</p>
+- 绑定类名(class)
+    +  由于JSX本质是转换成JS代码, 而在JS中class有特殊含义, 所以不能使用
+            同理可证, 但凡是属性名称是JS关键字的都不能直接使用
+- 绑定样式(style)
+    + 由于样式是键值对形式的, 所以在JSX中如果想要动态绑定样式
+      必须将样式放到一个对象中, 并且所有以-连接的样式名称都要转换成驼峰命名
+    +  <p style={{color:'red', fontSize:'50px'}}>绑定样式</p>
+-->
+<div id="app"></div>
+<!--<p id="box" class="active" style="color: red; font-size: 100px">我是段落</p>-->
+<script type="text/babel">
+    class Home extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                message:'知播渔'
+            }
+        }
+        render(){
+            return (
+                <div>
+                    {/*1.对于普通属性而言, 过去怎么绑定, 现在就怎么绑定*/}
+                    <p id="box">{this.state.message}</p>
+                    <p title={this.state.message}>{this.state.message}</p>
+                    {/*2.如果想通过JSX绑定类名, 那么不能直接通过class来绑定
+                         JSX本质是转换成JS代码, 而在JS代码中class是一个关键字
+                         所以不能直接使用class来绑定类名*/}
+                    {/*3.所以以后但凡名称是JS关键字的属性, 都不能直接绑定*/}
+                    <p className="active">{this.state.message}</p>
+                    {/*4.如果想通过JSX绑定样式, 那么不能像过去一样编写
+                         必须通过对象的形式来绑定*/}
+                    {/*5.在绑定样式的时候, 如果过去在原生中是通过-连接的, 那么就必须转换成驼峰命名*/}
+                    <p style={{color:'red', fontSize:'100px'}}>{this.state.message}</p>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

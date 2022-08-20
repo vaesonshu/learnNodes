@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+2.JSX嵌入数据注意点
+- 以下代码等价
+<div></div>
+<div>{[]}</div>
+<div>{false}</div>
+<div>{true}</div>
+<div>{null}</div>
+<div>{undefined}</div>
+- 要想显示以上内容必须先转换成字符串
+- 以下代码报错
+<div>{{}}</div>
+- 其它数据正常显示
+-->
+<!--
+1.JSX嵌入表达式
+- 只要是合法的表达式, 都可以嵌入到JSX中
+-->
+<div id="app"></div>
+<script type="text/babel">
+    class Home extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                flag:true,
+                message: '知播渔'
+            }
+        }
+        render(){
+            return (
+                <div>
+                    {/*1.任何合法的JS表达式都可以嵌入到{}中*/}
+                    <p>{this.state.flag ? '为真' : '为假'}</p>
+                    {/*2.以下嵌入的内容不会被显示出来 [] true false null undefined*/}
+                    <p>{[]}</p>
+                    <p>{true}</p>
+                    <p>{false}</p>
+                    <p>{null}</p>
+                    <p>{undefined}</p>
+                    {/*3.如果想显示上面的这些内容, 那么就必须先转换成字符串
+                         但是对于空数组来说, 哪怕转换成了字符串, 也不能显示*/}
+                    <p>{[].toString()}</p>
+                    <p>{true + ''}</p>
+                    <p>{false + ''}</p>
+                    <p>{null + ''}</p>
+                    <p>{undefined + ''}</p>
+                    {/*4.除了上述内容以外, 其它的内容都可以正常显示*/}
+                    <p>我是段落</p>
+                    <p>{this.state.message}</p>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

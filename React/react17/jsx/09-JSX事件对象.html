@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.JSX事件参数
+- 和原生JS一样, React在执行监听方法会传递一个事件对象给我们
+  但是React传递给我们的并不是原生的事件对象, 而是一个React自己合成的事件对象
+
+2.什么是合成事件?
+- 合成事件是 React 在浏览器事件基础上做的一层包装，
+  基本上有着和浏览器的原生事件有相同的接口，
+  也能够进行 stopPropagation() 和 preventDefault()，
+  并且合成事件在所有浏览器中的工作方式相同
+
+- 如果由于某种原因需要浏览器的原生事件，
+  则能够简单的通过 nativeEvent 属性就能够获取
+
+- 注意点:
+    + 从 ReactV0.14 起，从事件处理程序返回 false 将不再停止事件的传递。
+      应当手动调用 e.stopPropagation() 或 e.preventDefault() 去阻止传递。
+    + 合成事件 是合并而来。这意味着 合成事件 对象可能会被重用，
+      而且在事件回调函数被调用后，所有的属性都会无效。出于性能考虑，你不能通过异步访问事件。
+
+3.React事件处理性能优化
+- React并不会把事件处理函数直接绑定到真实的节点上，
+  而是使用一个统一的事件监听器 ReactEventListener，
+  把所有事件绑定到结构的最外层 document 节点上，依赖冒泡机制完成事件委派
+
+- ReactEventListener：React事件监听器维持了一个映射来保存所有组件内部的事件监听和处理函数，
+  负责事件注册和事件分发。当组件在挂载或卸载时，只是在这个统一的事件监听器上插入或删除一些对象；
+  当事件发生时，首先被这个统一的事件监听器处理，然后在映射里找到真正的事件处理函数并调用。
+  这样简化了事件处理和回收机制，提升了效率
+
+
+https://zh-hans.reactjs.org/docs/handling-events.html
+https://zh-hans.reactjs.org/docs/events.html
+-->
+<div id="app"></div>
+<script type="text/babel">
+    class Home extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                message: '知播渔'
+            }
+        }
+        render() {
+            return (
+                <div>
+                    <div>{this.state.message}</div>
+                    {/*
+                    在React中当监听方法被触发的时候, React也会传递一个事件对象给我们
+                    但是React传递给我们的这个事件对象并不是原生的事件对象,
+                    而是React根据原生的事件对象自己合成的一个事件对象
+                    注意点: 虽然传递给我们的是React自己合成的事件对象, 但是提供的API和元素的几乎一致
+                           如果你用到了一个没有提供的API, 那么你也可以根据合成的事件对象拿到原生的事件对象
+                    */}
+                    <button onClick={(e)=>{console.log(e)}}>按钮</button>
+                    <button onClick={(e)=>{console.log(e.nativeEvent)}}>按钮</button>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

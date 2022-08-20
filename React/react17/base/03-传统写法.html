@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+需求: 监听按钮点击, 修改div中内容
+-->
+    <div class="box"></div>
+    <button>按钮</button>
+    <script>
+      let message = '知播渔'
+      const oDiv = document.querySelector('.box')
+      oDiv.innerText = message
+
+      const oBtn = document.querySelector('button')
+      oBtn.onclick = function () {
+        message = 'www.it666.com'
+        // console.log(message);
+        oDiv.innerText = message
+      }
+    </script>
+  </body>
+</html>

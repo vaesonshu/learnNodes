@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.state属性注意点
+- 永远不要直接修改state
+- 直接修改state并不会触发界面更新
+- 只有使用setState方法修改state才会触发界面更新
+https://zh-hans.reactjs.org/docs/state-and-lifecycle.html
+-->
+<div id="app"></div>
+<script type="text/babel">
+    class Home extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                message:'知播渔123'
+            }
+        }
+        render(){
+            return (
+                <div>
+                    <div>{this.state.message}</div>
+                    <button onClick={this.myFn}>按钮</button>
+                </div>
+            )
+        }
+        myFn = () => {
+            // 注意点:
+            // 如果要修改state中的数据, 那么永远不要直接修改
+            // 如果要修改state中的数据, 那么需要通过setState方法来修改
+            // this.state.message = 'www.it666.com';
+            // console.log(this.state.message);
+            this.setState({
+                message: 'www.it666.com'
+            })
+            //ReactDOM.render(<Home/>, document.getElementById('app'));
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

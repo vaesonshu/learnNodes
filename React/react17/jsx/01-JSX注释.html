@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.JSX注释
+- 在JSX中遇到<会当做XML元素解析, 遇到{会当做JS解析
+  所以在JSX中不能使用HTML的注释
+
+- JSX代码用于定义网页的结构, 而网页的内容中必然会包含内容
+  所以直接在JSX中使用单行注释//或多行注释/**/会被当做元素的内容处理
+- 正确打开姿势:
+https://zh-hans.reactjs.org/docs/faq-build.html
+-->
+<div id="app"></div>
+<script type="text/babel">
+    class Home extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                message:'知播渔'
+            }
+        }
+        render(){
+            /*
+            1.在JSX中是不能使用HTML的注释的, 因为JSX会把它当做是一个元素来处理
+            <!--注释内容-->
+            2.在JSX中是不能使用JS的单行注释的, 因为元素中是有内容的, 所以JSX会把单行注释当做是元素的内容来处理
+            // 单行注释
+            3.在JSX中是不能使用JS的多行注释的, 因为元素中是有内容的, 所以JSX会把多行注释当做是元素的内容来处理
+            4.在JSX中不能使用单行注释和多行注释的原因是, 默认情况下JSX会把注释的内容当做是元素的内容来处理
+              所以我们只需要告诉JSX, 注释的内容不是元素的内容即可
+              所以我们只需要将注释的内容写到{}中, JSX就会把注释的内容当做是JS来处理
+            * */
+            return (
+                <div>
+                    {
+                        // 单行注释
+                        /*
+                        多行注释
+                        * */
+                    }
+                    <p>{this.state.message}</p>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+<body>
+<!--
+1.有状态组件和无状态组件?
+- 首先需要明确的是, 组件中的状态(state)指的其实就是数据
+    + 有状态组件指的就是有自己数据的组件(逻辑组件)
+    + 无状态组件指的就是没有自己数据的组件(展示组件)
+
+2.如何定义自己的状态?
+- 凡是继承于React.Component的组件, 默认都会从父类继承过来一个state属性
+  这个state属性就是专门用来保存当前数据的
+- 所以但凡是继承于React.Component的组件, 都是有状态组件
+- 所以但凡不是继承于React.Component的组件, 都是无状态组件
+- 所以类组件就是有状态组件
+- 所以函数组件就是无状态组件
+-->
+<div id="app"></div>
+<script type="text/babel">
+    function Home() {
+        return (
+            <div>
+                <div>{state + ''}</div>
+                <button onClick={myFn}>按钮</button>
+            </div>
+        )
+    }
+    /*
+    class Home extends React.Component{
+        render(){
+            return (
+                <div>
+                    <div>{this.state + ''}</div>
+                    <button onClick={myFn}>按钮</button>
+                </div>
+            )
+        }
+    }
+     */
+    ReactDOM.render(<Home/>, document.getElementById('app'));
+
+    function myFn() {
+        message = 'www.it666.com';
+        ReactDOM.render(<Home/>, document.getElementById('app'));
+    }
+</script>
+</body>
+</html>
