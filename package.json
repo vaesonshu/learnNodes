@@ -5,9 +5,9 @@
   "license": "MIT",
   "devDependencies": {
     "chalk": "^4.1.0",
-		"gray-matter": "^4.0.3",
-		"lodash": "^4.17.21",
-		"vite": "^2.9.12",
+    "gray-matter": "^4.0.3",
+    "lodash": "^4.17.21",
+    "vite": "^2.9.12",
     "vitepress": "^1.0.0-alpha.4",
     "yorkie": "^2.0.0"
   },
