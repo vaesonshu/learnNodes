@@ -1,0 +1,26 @@
+<!--
+1.什么是脚手架?
+脚手架是一种能快速帮助我们生成项目结构和依赖的工具
+- 每个项目完成的效果不同，但是它们的基本工程化结构是相似的
+- 既然相似，就没有必要每次都从零开始搭建，完全可以使用一些工具，帮助我们生成基本的项目模板
+- 那么这个帮助我们生成项目模板的工具我们就称之为'脚手架'
+
+2.什么是create-react-app?
+create-react-app就是React的脚手架工具,
+它可以快速的帮我们生成一套利用webpack管理React的项目模板
+
+3.如何安装和使用create-react-app?
+npm install -g create-react-app
+create-react-app 项目名称
+cd 项目名称
+npm start
+注意点: 如果我们是通过create-react-app来创建React项目
+       那么在指定项目名称的时候, 项目的名称只能是英文, 并且只能是小写字母
+       如果出现了多个单词, 那么我们需要通过_-来连接. myName->my_name->my-name
+注意点: 第一次运行项目的时候大概率会出现一个错误, 会出现本地webpack的版本和项目依赖的webpack版本不同的错误
+       如果遇到了这个错误, 我们就需要先通过 npm uninstall webapck 卸载掉本地的webpack
+       再通过 npm install -g webpack@xx.xx.xx安装和项目相同版本的webpack即可
+
+4.暴露webapck配置
+npm run eject
+-->
